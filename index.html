@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="./index.css" />
+</head>
+
+<body>
+  <div id="main">
+    <table id="table">
+
+    </table>
+    <button id="edit">Edit mode: OFF</button>
+    <br>
+    <div>
+      <br>
+      Terrain
+      <br>
+      <button id="path">path</button>
+      <button id="grass">grass</button>
+      <button id="mud">mud</button>
+      <button id="wall">wall</button>
+    </div>
+    <div>
+      <br>
+      Board
+      <br>
+      <button id="clear">clear</button>
+      <button id="findPath">Find a path!</button>
+      <button id="setSize">Set board size</button>
+    </div>
+    <div id="result"></div>
+    <br>
+    <div>
+      How-to ?
+      <ol type="1">
+        <li>Click on any square and hit 'e' to select start position</li>
+        <li>Click on any square and hit 'x' to select goal position</li>
+        <li>Enable editing mode and choose from path / grass / mud / wall (costs 1, 2, 3, x) respectively</li>
+        <li>Move mouse over squares to fill with selected terrain</li>
+        <li>Hit find a path !</li>
+      </ol>
+    </div>
+  </div>
+  <script type="module" src="index.js"></script>
+</body>
+
+</html>
