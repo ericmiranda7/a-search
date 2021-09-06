@@ -35,6 +35,6 @@ findPathButton.onclick = () => {
   if (path.length === 0) result.textContent = "Probably a wall blocking :("
   path.reverse();
   path.forEach((s, i) => {
-    setTimeout(() => board.squares[s].element.style.backgroundColor = "yellow", i*500);
+    setTimeout(() => board.squares[s].element.style.backgroundColor = "yellow", i*250);
   })
 }
