@@ -33,6 +33,8 @@ clearButton.onclick = () => board.clearBoard();
 findPathButton.onclick = () => {
   let path = utils.findPath(board);
   if (path.length === 0) result.textContent = "Probably a wall blocking :("
-  console.log(path)
-  path.forEach(s => board.squares[s].element.style.backgroundColor = "yellow")
+  path.reverse();
+  path.forEach((s, i) => {
+    setTimeout(() => board.squares[s].element.style.backgroundColor = "yellow", i*500);
+  })
 }
