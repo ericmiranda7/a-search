@@ -41,6 +41,31 @@
         <li>Hit find a path !</li>
       </ol>
     </div>
+    <br>
+    <pre>Explanation
+    A* is the same as best-first search with evaluation function = path-cost (cost upto current node) + heuristic (cost to goal from current)
+
+    Path cost = g(n) = 1 / 2 / 3 (depends on terrain tiles)
+    Heuristic = h(n) = Manhattan distance between current node and goal
+
+    Goal finding algorithm (A*)
+    1. Pushes the start node (marked 'E') into the (priority) queue ordered by h(n)
+    2. Gets a node from the queue
+    3. Expands the node to get its neighbours
+    4. Checks each neighbour
+      a) Wall (cost 'x') -> skip
+      b) neighbour exists in reached -> skip
+      c) new cost for this particular path >= exisiting cost for this node -> skip
+      else adds the neighbour to frontier for expansion with queue cost as manhattan distance to the goal
+    5. repeat steps 2 to 4 until queue is empty or goal state reached.
+
+    Path printing Algorithm
+    1. Check if goal tile was reached
+    2. Get tile cameFrom[goalTile] and append to path array
+    3. Check if tile == start position
+      a) yes -> return path array
+      b) no go to step 2
+    </pre>
   </div>
   <script type="module" src="index.js"></script>
 </body>

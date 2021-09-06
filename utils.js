@@ -134,7 +134,7 @@ function findPath(board) {
   }
   console.log(cameFrom);
 
-  if (!cameFrom[board.xPosition]) return []
+  if (!costSoFar[board.xPosition]) return []
   let res = cameFrom[board.xPosition];
   let path = []
   while (res !== board.myPosition) {
