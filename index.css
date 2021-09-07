@@ -1,6 +1,6 @@
 .square {
-  height: 2.5em;
-  width: 2.5em;
+  min-height: 2.5em;
+  min-width: 2.5em;
   border: 1px solid black;
   align-items: center;
   justify-content: center;

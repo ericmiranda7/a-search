@@ -117,7 +117,10 @@ function findPath(board) {
   let counter = 0;
   while (!frontier.isEmpty()) {
     const square = frontier.pop()[0];
-    if (square.id != board.myPosition) setTimeout(() => square.element.textContent = "v", counter++ * 100);
+    if (square.id != board.myPosition) setTimeout(() => {
+      square.element.textContent = costSoFar[square.id] + "v"
+      square.element.style.fontWeight = 'normal';
+    }, counter++ * 100);
 
     if (square.id === board.xPosition) break;
     for (let neighbour of expand(board.squares, square, board.n)) {
