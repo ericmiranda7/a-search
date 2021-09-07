@@ -107,7 +107,6 @@ class Board {
 
 function findPath(board) {
   const frontier = new PriorityQueue((a, b) => a[1] < b[1]);
-  board = { ...board };
   const squares = board.squares;
   const start = squares[board.myPosition];
   const cameFrom = { [start.id]: null }
@@ -116,11 +115,12 @@ function findPath(board) {
   frontier.push([start, 0])
   console.log(board.xPosition);
 
+  let counter = 0;
   while (!frontier.isEmpty()) {
     const square = frontier.pop()[0];
+    setTimeout(() => square.element.textContent = "v", counter++ * 250);
 
     if (square.id === board.xPosition) break;
-    console.log(expand(board.squares, square, board.n))
     for (let neighbour of expand(board.squares, square, board.n)) {
       if (neighbour.cost === 0) continue; // wall
       const newCostSoFar = costSoFar[square.id] + neighbour.cost;
@@ -130,7 +130,6 @@ function findPath(board) {
         frontier.push([neighbour, (newCostSoFar + h(neighbour.id, board.xPosition, board.n))]);
       }
     }
-    console.log('whiling');
   }
   console.log(cameFrom);
 
@@ -141,7 +140,10 @@ function findPath(board) {
     path.push(res)
     res = cameFrom[res];
   }
-  return path
+  path.reverse();
+  path.forEach((s, i) => {
+    setTimeout(() => board.squares[s].element.style.backgroundColor = "yellow", counter * 250);
+  })
 }
 
 function expand(squares, square, n) {
