@@ -113,12 +113,11 @@ function findPath(board) {
   const costSoFar = { [start.id]: 0 }
 
   frontier.push([start, 0])
-  console.log(board.xPosition);
 
   let counter = 0;
   while (!frontier.isEmpty()) {
     const square = frontier.pop()[0];
-    setTimeout(() => square.element.textContent = "v", counter++ * 250);
+    if (square.id != board.myPosition) setTimeout(() => square.element.textContent = "v", counter++ * 100);
 
     if (square.id === board.xPosition) break;
     for (let neighbour of expand(board.squares, square, board.n)) {
@@ -131,7 +130,6 @@ function findPath(board) {
       }
     }
   }
-  console.log(cameFrom);
 
   if (!costSoFar[board.xPosition]) return []
   let res = cameFrom[board.xPosition];
@@ -142,7 +140,7 @@ function findPath(board) {
   }
   path.reverse();
   path.forEach((s, i) => {
-    setTimeout(() => board.squares[s].element.style.backgroundColor = "yellow", counter * 250);
+    setTimeout(() => board.squares[s].element.style.backgroundColor = "yellow", counter * 100);
   })
 }
 
